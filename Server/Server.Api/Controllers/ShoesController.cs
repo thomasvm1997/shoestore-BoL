@@ -67,12 +67,12 @@ namespace Server.Api.Controllers
         }
         [HttpGet("filter")]
         public async Task<IActionResult> GetFilteredShoeList(
-                    [FromQuery] int? categoryId,
-                    [FromQuery] int? brandId,
-                    [FromQuery] decimal? minPrice,
-                    [FromQuery] decimal? maxPrice,
-                    [FromQuery] int? size,
-                    [FromQuery] string? name)
+                        [FromQuery] int? categoryId,
+                        [FromQuery] int? brandId,
+                        [FromQuery] decimal? minPrice,
+                        [FromQuery] decimal? maxPrice,
+                        [FromQuery] int? size,
+                        [FromQuery] string? name)
         {
             var result = await _shoeService.FilterListShoesAsync(categoryId, brandId, minPrice, maxPrice, size, name);
 
