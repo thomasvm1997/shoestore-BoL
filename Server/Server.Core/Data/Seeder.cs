@@ -37,19 +37,40 @@ namespace Server.Core.Data
 
             string stockPhotoUrl = "https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
+            var random = new Random();
             var shoes = new List<Shoe>();
+
+            var shoeNames = new List<string>
+                {
+                    "Air Stride", "Ultra Run", "SpeedFlex", "PowerStep", "Enduro",
+                    "CloudFlow", "Solar Glide", "Velocity Boost", "Sprint Edge", "TrailBlazer",
+                    "HyperRush", "AeroStride", "Thunder Run", "FloatStep", "ZoomDrive",
+                    "VaporSwift", "PulseZoom", "AeroCushion", "GripMaster", "Stealth Glide",
+                    "LunarStride", "RapidFlex", "Nova Flow", "JumpX", "OmniRun",
+                    "Phantom Flex", "TrailMax", "SonicStep", "CrossCharge", "AeroRun",
+                    "IgniteWave", "GlideFuel", "UltraLight", "AirVolt", "TerraBoost",
+                    "CloudRush", "HyperGrip", "SwiftStrike", "SpeedStorm", "EdgeMax",
+                    "AlphaCharge", "MaxPropel", "ZeroGravity", "PowerDash", "AeroSpeed",
+                    "ZoomJet", "StormRunner", "GlideWave", "HydroFlow", "PulseStrider"
+                };
+
             for (int i = 1; i <= 50; i++)
             {
+                int brandIndex = random.Next(shoeBrands.Count); 
+                string brandName = shoeBrands[brandIndex].Name; 
+                string shoeName = $"{brandName} {shoeNames[i - 1]}";
+
+
                 shoes.Add(new Shoe
                 {
                     Id = i,
-                    Name = $"Shoe Model {i}",
-                    Description = $"High-quality shoe model {i} with excellent comfort.",
-                    Price = 49.99m + (i % 10) * 5, 
-                    Size = 36 + (i % 11), 
-                    ImageUrl = stockPhotoUrl, 
-                    ShoeBrandId = (i % 5) + 1, 
-                    ShoeCategoryId = (i % 3) + 1 
+                    Name = shoeName,
+                    Description = $"High-quality {brandName} shoe, model {shoeNames[i - 1]}, with excellent comfort.",
+                    Price = 49.99m + (i % 10) * 5,
+                    Size = 36 + (i % 11),
+                    ImageUrl = stockPhotoUrl,
+                    ShoeBrandId = brandIndex + 1,
+                    ShoeCategoryId = (i % 3) + 1
                 });
             }
 

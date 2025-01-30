@@ -7,5 +7,6 @@ namespace Server.Api.Controllers
     [ApiController]
     public class ShoesController : ControllerBase
     {
+
     }
 }
