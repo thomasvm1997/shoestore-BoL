@@ -22,6 +22,20 @@ namespace Server.Core.Services
         {
             return _db.Shoes.Include(p => p.ShoeBrand).Include(c => c.ShoeCategory);
         }
+        public async Task<ResultModel<Shoe>> GetShoeById(int shoeId)
+        {
+            var list = await GetAll().ToListAsync();
+            if (list.Count == 0)
+            {
+                return new ResultModel<Shoe> { Errors = new List<string> { "Could not find shoes" } };
+            }
+            var shoe = list.Where(c => c.Id == shoeId).FirstOrDefault();
+            if(shoe == null)
+            {
+                return new ResultModel<Shoe> { Errors = new List<string> { "Could not find shoe" } };
+            }
+            return new ResultModel<Shoe> { Data = shoe };
+        }
 
         public async Task<ResultModel<IEnumerable<Shoe>>> ListAllShoesAsync()
         {
@@ -60,5 +74,6 @@ namespace Server.Core.Services
             return new ResultModel<IEnumerable<Shoe>> { Data = filteredList };
 
         }
+
     }
 }

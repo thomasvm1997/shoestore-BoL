@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Server.Core.Data;
+using Server.Core.Services;
+using Server.Core.Services.Interfaces;
 
 namespace Server.Api
 {
@@ -26,6 +28,9 @@ namespace Server.Api
                 opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Shoe Api", Version = "v1" });
                 
             });
+            builder.Services.AddScoped<IShoeService, ShoeService>();
+            builder.Services.AddScoped<IShoeBrandService, ShoeBrandService>();
+            builder.Services.AddScoped<IShoeCategoryService, ShoeCategoryService>();
 
                 var app = builder.Build();
 

@@ -12,6 +12,7 @@ namespace Server.Core.Services.Interfaces
     {
         IQueryable<Shoe> GetAll();
         Task<ResultModel<IEnumerable<Shoe>>> ListAllShoesAsync();
+        Task<ResultModel<Shoe>> GetShoeById(int shoeId);
         Task<ResultModel<IEnumerable<Shoe>>> FilterListShoesAsync(int? categoryId, int? brandId, decimal? minPrice, decimal? maxPrice, int? size, string? name);
 
     }
