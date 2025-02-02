@@ -2,16 +2,30 @@ import { useState, useEffect } from "react";
 import { ShoeCategory } from "../types/ShoeCategory";
 
 const useFetchShoeCategories = () => {
-    const [ShoeCategory, SetShoeCategories] = useState<ShoeCategory[]>([])
+    const [shoeCategories, SetShoeCategories] = useState<ShoeCategory[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         fetch("https://localhost:7278/api/Categories")
-        .then((response) => response.json())
-        .then((data) => SetShoeCategories(data))
-        .catch((error) => console.error("error fetching shoes", error));
-    }, []);
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            SetShoeCategories(data);
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.error("Error fetching categories:", error);
+            setError(error);
+            setLoading(false);
+        });
+}, []);
 
-    return ShoeCategory;
+return { shoeCategories, loading, error };
 }
 
 export default useFetchShoeCategories;
