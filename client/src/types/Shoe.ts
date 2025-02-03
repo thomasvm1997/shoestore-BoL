@@ -3,7 +3,7 @@ export type Shoe = BaseType & {
     decription: string;
     price: number;
     size: number;
-    image: string;
+    imageUrl: string;
     shoeBrandId: number;
     shoeBrandName: string;
     shoeCategoryId: number;

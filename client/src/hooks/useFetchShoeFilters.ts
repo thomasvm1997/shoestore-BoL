@@ -4,8 +4,7 @@ import { Shoe } from "../types/Shoe";
 const useFetchShoeFilters = (categoryId?: number, brandId?: number, 
                             minPrice?: number, maxPrice?: number, size?: number, name?: string) => {
     const [shoeFiltered, SetShoeFiltered] = useState<Shoe[]>([]);
-    const [loading, SetLoading] = useState<Boolean>(true);
-    const [error, SetError] = useState<Error | null>(null); //Als null is, is er data
+
 
     const params = new URLSearchParams();
 
@@ -17,7 +16,7 @@ const useFetchShoeFilters = (categoryId?: number, brandId?: number,
     if (name) params.append("name", name);
 
     const url = `https://localhost:7278/api/Shoes/filter?${params.toString()}`;
-
+                              
     useEffect(() => {
         fetch(url)
         .then((response) =>{
@@ -28,14 +27,13 @@ const useFetchShoeFilters = (categoryId?: number, brandId?: number,
         })
         .then((data) => {
             SetShoeFiltered(data);
-            SetLoading(false);
+
         })
         .catch((error) => {
             console.error("Error filtering shoes", error);
-            SetError(error);
-            SetLoading(false)
+
         })
-    }, []);
-    return {shoeFiltered, loading, error}
+    }, [categoryId, brandId, minPrice, maxPrice, size, name]);
+    return {shoeFiltered}
 };
 export default useFetchShoeFilters;
