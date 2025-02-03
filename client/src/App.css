@@ -1,23 +1,65 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+.container {
+  display: grid;
+  grid-template-rows: auto auto; /* Two rows */
+  height: 100vh;
+  background-color: rgb(253, 253, 253);
+}
+
+.row-1 {
+
+  padding: 20px;
+  text-align: center;
+  border: 2px solid rgba(205, 205, 205, 0.208); /* Border for the first row */
+  height: 5vh;
+  display: inline-flex;
+  gap: 55vh;
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Middle column is twice as wide */
+  height: 95vh;
+}
+
+.column {
+  padding: 20px;
+  text-align: center;
+  border: 2px solid rgba(205, 205, 205, 0.208); /* Border for each column */
+}
+
+input{
+  width: 60vh;
+  height: 5vh;
+  border-radius: 15px;
+  padding: 5px;
+  padding-left: 15px;
+  font-size: 26px;
+  border: 2px solid rgba(205, 205, 205, 0.429);
+  color: rgba(90, 89, 89, 0.598);
+
+}
+
+input:focus{
+  outline: none;
+}
+h2{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+}
+.column > div{
+  
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
