@@ -10,7 +10,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: auto auto; /* Two rows */
+  grid-template-rows: auto auto; 
   height: 100vh;
   background-color: rgb(253, 253, 253);
 }
@@ -19,22 +19,22 @@ body {
 
   padding: 20px;
   text-align: center;
-  border: 2px solid rgba(205, 205, 205, 0.208); /* Border for the first row */
+  border: 2px solid rgba(205, 205, 205, 0.208); 
   height: 5vh;
   display: inline-flex;
-  gap: 52vh;
+  gap: 25%;
 }
 
 .row-2 {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Middle column is twice as wide */
+  grid-template-columns: 1fr 2fr 1fr; 
   height: 95vh;
 }
 
 .column {
   padding: 20px;
   text-align: center;
-  border: 2px solid rgba(205, 205, 205, 0.208); /* Border for each column */
+  border: 2px solid rgba(205, 205, 205, 0.208); 
 }
 
 input{
@@ -51,6 +51,10 @@ input{
 
 input:focus{
   outline: none;
+}
+.titleList{
+  text-align: left;
+  padding-left: 30px;
 }
 h2{
   margin-top: 4px;
@@ -70,7 +74,7 @@ h2{
   font-size: 25px;
 }
 .cardsContainer p{
- float: right;
+ float: left;
  color: rgba(90, 89, 89, 0.598);
  padding: 10px;
 }
@@ -78,6 +82,7 @@ h2{
 .cardsContainer span{
   float: right;
   padding: 10px;
+  padding-top: 20px;
   color: rgba(90, 89, 89, 0.598);
   font-size: 20px;
  }
@@ -88,6 +93,7 @@ h2{
   border-radius: 10px;
   padding: 15px;
   width: 40%;
+  height: 400px;
   text-align: center;
 
 }

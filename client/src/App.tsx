@@ -2,11 +2,15 @@ import { useState } from 'react'
 import SearchBarComponent from './components/SearchBarComponent'
 import ShoeListCardComponent from './components/ShoeListCardComponent'
 import useFetchShoeFilters from './hooks/useFetchShoeFilters'
+import useFetchShoesById from './hooks/useFetchShoeById'
+import ShoeDetailsCardComponent from './components/ShoeDetailsCardComponent'
 import './App.css'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [getId, setGetId] = useState<number>(1)
   const {shoeFiltered} = useFetchShoeFilters(undefined, undefined, undefined, undefined, undefined, searchTerm);
+  const shoeById = useFetchShoesById(getId);
 
   return (
 
@@ -19,9 +23,11 @@ function App() {
         <div className="row-2">
             <div className="column">Column 1</div>
             <div className="column">
-              <ShoeListCardComponent shoes={shoeFiltered}></ShoeListCardComponent>
+              <ShoeListCardComponent onGetId={setGetId} shoes={shoeFiltered}></ShoeListCardComponent>
             </div>
-            <div className="column">Column 3</div>
+            <div className="column">
+              <ShoeDetailsCardComponent shoe={shoeById}></ShoeDetailsCardComponent>
+            </div>
         </div>
     </div>
     </>
