@@ -28,11 +28,23 @@ namespace Server.Api
                 opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Shoe Api", Version = "v1" });
                 
             });
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:5173") // Allow frontend URL
+                              .AllowAnyHeader()
+                              .AllowAnyMethod();
+                    });
+            });
             builder.Services.AddScoped<IShoeService, ShoeService>();
             builder.Services.AddScoped<IShoeBrandService, ShoeBrandService>();
             builder.Services.AddScoped<IShoeCategoryService, ShoeCategoryService>();
 
-                var app = builder.Build();
+            var app = builder.Build();
+
+            app.UseCors("AllowFrontend");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
