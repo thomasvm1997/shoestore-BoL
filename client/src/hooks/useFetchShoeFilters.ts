@@ -16,13 +16,10 @@ const useFetchShoeFilters = (categoryId?: number, brandId?: number,
     if (name) params.append("name", name);
 
     const url = `https://localhost:7278/api/Shoes/filter?${params.toString()}`;
-                              
+  
     useEffect(() => {
         fetch(url)
         .then((response) =>{
-            if(!response.ok){
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
             return response.json();
         })
         .then((data) => {

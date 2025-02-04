@@ -111,6 +111,165 @@ h2{
   color: #555;
   text-align: center;
 }
+
+.shoeCardDetail {
+  background: rgb(253, 253, 253);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+}
+
+
+.shoeImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.shoeInfo {
+  margin-top: 15px;
+}
+
+.shoeName {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.shoeBrand {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.shoeDescription {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.shoeDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.shoePrice {
+  color: #007bff;
+}
+
+.shoeSize {
+  color: #555;
+}
+
+.buyButton {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease-in-out;
+}
+
+.buyButton:hover {
+  background: #0056b3;
+}
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgb(253, 253, 253);
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+.categoryFilter, .brandFilter{
+  border: 2px solid rgba(205, 205, 205, 0.429);
+  padding: 10px;
+}
+h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.radioLabel {
+  display: block;
+  font-size: 1.5rem;
+  color: #555;
+  margin: 5px 0;
+  cursor: pointer;
+  text-align: left;
+  width: 20%;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  cursor: pointer;
+  text-align: center;
+  width: fit-content;
+}
+
+
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 94%;
+}
+
+.slider {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.priceDisplay {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.sizeInput {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.sizeSelect {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
